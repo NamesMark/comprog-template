@@ -7,9 +7,33 @@ fn main() {
     init_input!(ii);
 
     let _n: usize = ii.get_num();
+    //let (n, k) = ii.get_two::<usize>();
     //let vec: Vec<Num> = ii.get_vec();
-    //let (a, b) = ii.get_two::<usize>();
     //let (c, d, f) = ii.get_three::<i32>();
+
+    println!("{}", solve(n, k, &vec));
+}
+
+
+fn solve(n: usize, k: usize, vec: &[Num]) -> Num {
+
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_1() {
+        let (n, k) = (0, 0);
+        //let vec: Vec<Num> = vec![1,2,3];
+        let input = "1 2 3";
+        let vec = input
+            .split_whitespace()
+            .map(|num| num.parse().unwrap())
+            .collect::<Vec<Num>>();
+        assert_eq!(1, solve(n, k, &vec));
+    }
 }
 
 ///
@@ -27,13 +51,6 @@ mod helpers {
     }
     pub fn p_vec<T: FromStr + std::fmt::Display>(vec: Vec<T>) {
         println!("{}", vec_fmt(vec));
-    }
-    pub fn p_empty<T: FromStr + std::fmt::Display>(vec: Vec<T>) {
-        if vec.is_empty() {
-            println!("-1");
-        } else {
-            p_vec(vec);
-        }
     }
     #[macro_export]
     macro_rules! init_input {
