@@ -7,16 +7,16 @@ fn main() {
     init_input!(ii);
 
     let _n: usize = ii.get_num();
-    //let (n, k) = ii.get_two::<usize>();
-    //let vec: Vec<Num> = ii.get_vec();
-    //let (c, d, f) = ii.get_three::<i32>();
+    let (n, k) = ii.get_two::<usize>();
+    let (c, d, f) = ii.get_three::<i32>();
+    let vec: Vec<Num> = ii.get_vec();
+    let line = ii.next_line().unwrap();
 
     println!("{}", solve(n, k, &vec));
 }
 
-
 fn solve(n: usize, k: usize, vec: &[Num]) -> Num {
-
+    1
 }
 
 #[cfg(test)]
@@ -39,19 +39,9 @@ mod test {
 ///
 /// HELPERS
 ///
-#[allow(dead_code)]
 mod helpers {
     use std::io::{self, BufRead};
     use std::str::FromStr;
-    pub fn vec_fmt<T: FromStr + std::fmt::Display>(vec: Vec<T>) -> String {
-        vec.iter()
-            .map(|n| n.to_string())
-            .collect::<Vec<_>>()
-            .join(" ")
-    }
-    pub fn p_vec<T: FromStr + std::fmt::Display>(vec: Vec<T>) {
-        println!("{}", vec_fmt(vec));
-    }
     #[macro_export]
     macro_rules! init_input {
         ($ii:ident) => {
